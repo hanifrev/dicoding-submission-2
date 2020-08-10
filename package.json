@@ -1,0 +1,24 @@
+{
+    "name": "clubs-website",
+    "version": "1.0.0",
+    "description": "dicoding submission",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hanifrev/dicoding-submission-2.git"
+    },
+    "author": "Faishal Hanif",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/hanifrev/dicoding-submission-2/issues"
+    },
+    "homepage": "https://github.com/hanifrev/dicoding-submission-2#readme",
+    "devDependencies": {
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
+    }
+}

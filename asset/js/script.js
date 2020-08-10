@@ -1,7 +1,7 @@
 const header = document.querySelector('.header');
 header.style.backgroundColor = '#00205b';
-header.innerHTML = `<h1>FC United of Transilvania</h1>`;
-
+header.innerHTML = `<h1><a href="../index.html">FC United of Transilvania</a></h1>`;
+// header.innerHTML = ``
 
 // STICKY NAVBAR WHEN SCROLLED DOWN
 window.onscroll = function() { myFunction() };
@@ -17,7 +17,6 @@ myFunction = () => {
     }
 }
 
-
 const main = document.querySelector('.main');
 main.style.backgroundColor = '#FFFFFF';
 
@@ -25,8 +24,38 @@ const footer = document.querySelector('.footer');
 footer.style.backgroundColor = '#ffd700';
 
 
+const template = document.createElement('template');
+template.innerHTML = `
+<style>
+    p {
+        display: flex;
+        color: blue;
+        justify-content: center;
+        font-size: 20px;
+    }
+    @media (max-width: 530px) {
+        p {
+            font-size: 13px;
+        }
+    }
+</style>
+<div class="welcome">
+    <p></p>
+</div>
+`;
 
+class Welcome extends HTMLElement {
+    constructor() {
+        super();
 
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.shadowRoot.querySelector('p').innerText = this.getAttribute('name');
+    }
+}
+
+customElements.define('welcome-greet', Welcome);
 
 class MainPagePhoto2 extends HTMLElement {
     constructor() {
@@ -48,33 +77,50 @@ class MainPagePhoto2 extends HTMLElement {
 
 customElements.define('main-page-photo2', MainPagePhoto2);
 
+
+// const template = document.createElement('template');
+// template.innerHTML =
+
 class SomeColumn extends HTMLElement {
     constructor() {
         super();
+
         this.attachShadow({ mode: 'open' });
+        // this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        // this.shadowRoot.querySelector('p').innerText = this.getAttribute('name');
+
         this.shadowRoot.innerHTML = `
         <style> .${this.getAttribute("class")} {
-            display: grid;
-            width: auto;
-            grid-template-rows: auto;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-areas: 
+          
         }
+
         .first-col { 
+            // grid-area: firstcol;
+            font-size: 15px;
             color: red;
-            grid-area: firstcol;
+            display: grid;
         }
 
         .second-col {
-            color: green;
+            // grid-area: secondcol;
+            font-size: 15px;
+            color: green;           
+            display: grid;
+        }
 
+        .third-col {
+            // grid-area: thirdcol;
+            font-size: 15px;
+            color: blue;
+            
         }
 
         </style>
 
-        <p class="first-col">test</p>
-        <p class="second-col">test</p>
-        <p class="third-col">test</p>
+        <p class="first-col">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!</p>
+        <p class="second-col">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!</p>
+        <p class="third-col">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!</p>
         `
     }
 }
