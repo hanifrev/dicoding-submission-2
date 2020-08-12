@@ -1,21 +1,23 @@
+import "./style/style.css";
+
 const header = document.querySelector('.header');
 header.style.backgroundColor = '#00205b';
-header.innerHTML = `<h1><a href="../index.html">FC United of Transilvania</a></h1>`;
+header.innerHTML = `<h1><a href="index.html">FC United of Transilvania</a></h1>`;
 
+// STICKY NAVBAR WHEN SCROLLED DOWN, (but it's error after webpack build, i don't know why)
+// window.onscroll = function() { navFunction() };
 
-// STICKY NAVBAR WHEN SCROLLED DOWN
-window.onscroll = function() { myFunction() };
 const nav = document.querySelector('.nav');
 nav.style.backgroundColor = '#ffd700';
 
-const sticky = nav.offsetTop;
-myFunction = () => {
-    if (window.pageYOffset >= sticky) {
-        nav.classList.add("sticky")
-    } else {
-        nav.classList.remove("sticky");
-    }
-}
+// const sticky = nav.offsetTop;
+// navFunction = () => {
+//     if (window.pageYOffset >= sticky) {
+//         nav.classList.add("sticky")
+//     } else {
+//         nav.classList.remove("sticky");
+//     }
+// }
 
 const main = document.querySelector('.main');
 main.style.backgroundColor = '#FFFFFF';
@@ -155,8 +157,8 @@ class SomeColumn extends HTMLElement {
         </style>
 
         <p class="first-col">MEET OUR PLAYER HERE
-                            <img src="./asset/img/squad.jpg"> 
-                            <button><a href="sub_pages/first-team.html">FCUOT First Team Players</a></button>
+                            <img src="https://images.daznservices.com/di/library/GOAL/e/7b/tim-persik-kediri_grhskmyguzq11l55bqrockzxp.jpg?t=-582137888&quality=100"> 
+                            <button><a href="first-team.html">FCUOT First Team Players</a></button>
         </p>
         <p class="second-col">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!<br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!</p>
         <p class="third-col">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!<br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!</p>
