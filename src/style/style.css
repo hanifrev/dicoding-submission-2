@@ -93,6 +93,11 @@ body {
     padding: 10px 20px;
 }
 
+.recent-match {
+    display: flex;
+    justify-content: center;
+}
+
 .buttplayer {
     width: 20%;
     height: 100%;

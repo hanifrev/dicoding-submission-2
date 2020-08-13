@@ -168,5 +168,17 @@ class SomeColumn extends HTMLElement {
 
 customElements.define('some-column', SomeColumn);
 
-// const buttplay = document.querySelector('.buttplayer');
-// buttplay.innerHTML = `<h4><a href="sub_pages/first-team.html">Click here to see our players</a></h4>`
+fetch("https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=133609")
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        let hasil = data.results;
+        return hasil.map(function(hasil) {
+            const recentMatch = document.querySelector('.recent-match');
+            recentMatch.innerHTML = `Lastest Result: ${hasil.strEvent}: ${hasil.intHomeScore} - ${hasil.intAwayScore}`
+        })
+    })
+    .catch(error => {
+        console.log(error);
+    });
