@@ -176,7 +176,7 @@ fetch("https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=133609")
         let hasil = data.results;
         return hasil.map(function(hasil) {
             const recentMatch = document.querySelector('.recent-match');
-            recentMatch.innerHTML = `Lastest Result: ${hasil.strEvent}: ${hasil.intHomeScore} - ${hasil.intAwayScore}`
+            recentMatch.innerHTML = `Latest Result: ${hasil.strEvent}: ${hasil.intHomeScore} - ${hasil.intAwayScore}`
         })
     })
     .catch(error => {
