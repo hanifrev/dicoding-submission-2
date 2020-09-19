@@ -1,14 +1,14 @@
 import "./style/style.css";
 
-const header = document.querySelector('.header');
-header.style.backgroundColor = '#00205b';
+const header = document.querySelector(".header");
+header.style.backgroundColor = "#00205b";
 header.innerHTML = `<h1><a href="index.html">FC United of Transilvania</a></h1>`;
 
 // STICKY NAVBAR WHEN SCROLLED DOWN, (but it's error after webpack build, i don't know why)
 // window.onscroll = function() { navFunction() };
 
-const nav = document.querySelector('.nav');
-nav.style.backgroundColor = '#ffd700';
+const nav = document.querySelector(".nav");
+nav.style.backgroundColor = "#ffd700";
 
 // const sticky = nav.offsetTop;
 // navFunction = () => {
@@ -19,14 +19,13 @@ nav.style.backgroundColor = '#ffd700';
 //     }
 // }
 
-const main = document.querySelector('.main');
-main.style.backgroundColor = '#FFFFFF';
+const main = document.querySelector(".main");
+main.style.backgroundColor = "#FFFFFF";
 
-const footer = document.querySelector('.footer');
-footer.style.backgroundColor = '#ffd700';
+const footer = document.querySelector(".footer");
+footer.style.backgroundColor = "#ffd700";
 
-
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
 <style>
     p {
@@ -47,26 +46,25 @@ template.innerHTML = `
 `;
 
 class Welcome extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-        this.shadowRoot.querySelector('p').innerText = this.getAttribute('name');
-    }
+    this.shadowRoot.querySelector("p").innerText = this.getAttribute("name");
+  }
 }
 
-customElements.define('welcome-greet', Welcome);
-
+customElements.define("welcome-greet", Welcome);
 
 class MainPagePhoto2 extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
 
-        this.shadowRoot.innerHTML = `
+    this.shadowRoot.innerHTML = `
         <style> img {
                 display: block;
                 margin-left: auto;
@@ -75,20 +73,18 @@ class MainPagePhoto2 extends HTMLElement {
                 width: 50%; }
         </style>
         <img src=${this.getAttribute("src")}>
-        `
-    }
+        `;
+  }
 }
 
-customElements.define('main-page-photo2', MainPagePhoto2);
-
-
+customElements.define("main-page-photo2", MainPagePhoto2);
 
 class SomeColumn extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = `
         <style> .${this.getAttribute("class")} {
           
         }
@@ -162,23 +158,23 @@ class SomeColumn extends HTMLElement {
         </p>
         <p class="second-col">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!<br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!</p>
         <p class="third-col">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!<br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis praesentium modi veniam aliquid. Expedita, quae eveniet dignissimos ullam iure dicta! Enim cupiditate iure voluptates odio iste numquam voluptatum consectetur odit!</p>
-        `
-    }
+        `;
+  }
 }
 
-customElements.define('some-column', SomeColumn);
+customElements.define("some-column", SomeColumn);
 
 fetch("https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=133609")
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        let hasil = data.results;
-        return hasil.map(function(hasil) {
-            const recentMatch = document.querySelector('.recent-match');
-            recentMatch.innerHTML = `Latest Result: ${hasil.strEvent}: ${hasil.intHomeScore} - ${hasil.intAwayScore}`
-        })
-    })
-    .catch(error => {
-        console.log(error);
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    let hasil = data.results;
+    return hasil.map(function (hasil) {
+      const recentMatch = document.querySelector(".recent-match");
+      recentMatch.innerHTML = `Latest Result: ${hasil.strEvent}: ${hasil.intHomeScore} - ${hasil.intAwayScore}`;
     });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
