@@ -70,7 +70,7 @@ class MainPagePhoto2 extends HTMLElement {
                 margin-left: auto;
                 margin-right: auto;
                 padding: 20px;
-                width: 50%; }
+                width: 90%; }
         </style>
         <img src=${this.getAttribute("src")}>
         `;
