@@ -1,5 +1,4 @@
 {
-  "homepage": "http://hanifrev.github.io/fc-clubweb/dist/index.html",
   "name": "clubs-website",
   "version": "1.0.0",
   "description": "dicoding submission",
@@ -21,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/hanifrev/dicoding-submission-2/issues"
   },
-  "homepage": "https://github.com/hanifrev/dicoding-submission-2#readme",
+  "homepage": "https://hanifrev.github.io/fc-clubweb/dist/index.html",
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
